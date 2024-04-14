@@ -1,0 +1,47 @@
+Employee Management System - FRONTEND
+-------------------------------------------------------------------------------------------------------------------------
+1. Create a new project 
+    -> npx create-vite@latest ems-frnotend -template react
+    -> cd ems-frnotend
+    -> npm install (installs node_modules)
+    -> code . (takes you to vs code ide)
+    -> Do a cleanup by removing unwanted code in .css files and in other necessary files
+    -> Run the project  --> npm start / npm run dev
+2. Install 3rd party libraries
+    -> MDB bootstrap - npm i mdb-react-ui-kit
+    ->Font awsome - npm i @fortawesome/fontawesome-free
+
+    CSS import
+    Add the following lines in your main.jsx file before the App.jsx file import.
+    
+    main.jsx
+    import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+    import '@fortawesome/fontawesome-free/css/all.min.css';
+
+    ->react bootstrap - npm install react-bootstrap bootstrap
+    -> google font
+        either paste this to the <head> of index.html
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        or 
+        paste this to index.css file
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    -> select a theme from bootswatch download and paste it to src folder. Then, import it to main.jsx.
+        import './bootstrap.min.css'
+
+3. Create a folder called 'Components' under 'src' with 7 files, namely:
+    1. Admin.jsx
+    2. Add.jsx
+    3. Edit.jsx
+    4. View.jsx
+    5. PageNotFound.jsx
+    6. Header.jsx
+    7. Footer.jsx
+
+4. Path creation:
+     router dom:  npm i react-router-dom
+        -> Browser router - It is used to set up app routing - main.jsx
+        -> Routes - to hold more than one route - App.jsx
+        -> Route - to set up Components path - App.jsx
