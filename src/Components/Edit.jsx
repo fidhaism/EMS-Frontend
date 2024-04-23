@@ -9,20 +9,20 @@ function Edit() {
     const navigate = useNavigate()
 
     // Create a state to hold the employee information from  database
-    const [id,setId] = useState('')
-    const [name, setName] = useState('')
-    const [age, setAge] = useState('')
-    const [designation, setDesignation] = useState('')
-    const [salary, setSalary] = useState('')
+    const [id,setId] = useState('');
+    const [name, setName] = useState('');
+    const [age, setAge] = useState('');
+    const [designation, setDesignation] = useState('');
+    const [salary, setSalary] = useState('');
 
   //get Particular employee
-  const {empid} = useParams()
+  const {empid} = useParams();
   console.log(empid)
 
   //get particular employee details
   const fetchEmployee=async()=>{
     const result = await axios.get(`${baseurl}/api/view-employee/${empid}`)
-    console.log(result.data.employee)
+    console.log(result.data.employee);
     setId(result.data.employee.id);
     setName(result.data.employee.name);
     setAge(result.data.employee.age);
@@ -31,15 +31,15 @@ function Edit() {
   }
 
   useEffect(() => {
-    fetchEmployee()
+    fetchEmployee();
   }, [])
 
 // Update employee details
-    const handleUpdate =async(e) => {
+    const handleUpdate =async() => {
       const body={id,name,age,designation,salary}
+
         // e.preventDefault()
-        console.log(id,name,age,designation,salary);
-        const result = await axios.post(`${baseurl}/api/update-employee/${empid}`,body)
+        const result = await axios.post(`${baseurl}/api/update-employee/${id}`,body)
         console.log(result);
         alert(result.data.message)
         navigate('/')
@@ -70,7 +70,7 @@ function Edit() {
           label="Age of employee"
           className="mb-3"
         >
-          <Form.Control value={age} type="text" placeholder="Age of Employee" onChange={(e) => setAge(e.target.value)} />
+          <Form.Control onChange={(e) => setAge(e.target.value)} value={age} type="text" placeholder="Age of Employee"  />
         </FloatingLabel>
 
         <FloatingLabel

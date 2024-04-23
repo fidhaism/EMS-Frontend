@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row'
@@ -8,6 +10,7 @@ import axios from 'axios';
 
 function Add() {
 const baseurl = `http://localhost:8000`;
+const navigate = useNavigate();
   //create a state to hold the employee details from the form
   const [id,setId] = useState('');
   const [name, setName] = useState('');
@@ -15,13 +18,17 @@ const baseurl = `http://localhost:8000`;
   const [designation, setDesignation] = useState('');
   const [salary, setSalary] = useState('');
 
-  console.log( id,name,age, designation, salary);
-
   const addEmployee=async()=>{
+    //Check if ID is empty
+    if(!id.trim()){
+      alert("Enter Employee ID");
+      return;
+    }
     const body ={id,name,age, designation, salary }
-    console.log(id,name,age, designation, salary);
+    
+    //api call to ADD employee details
     try{
-      //api call to ADD employee details
+      
     const result = await axios.post(`${baseurl}/api/add-employee`,body)
     console.log(result);
     alert(result.data.message);
@@ -31,7 +38,7 @@ const baseurl = `http://localhost:8000`;
     alert("Enter a unique Employee Id")
   }
 };
-  
+//console.log(id,name,age, designation, salary);
   return (
     <div>
       <h2 className='text-center m-4'>Add Employee Details</h2>
